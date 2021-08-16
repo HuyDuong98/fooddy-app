@@ -16,7 +16,7 @@ const products = [
         rating: 1,
         price: "$200.00",
         oldPrice: "250.00",
-        like:true,
+        like: true,
     },
     {
         chip: "20% off",
@@ -25,7 +25,7 @@ const products = [
         rating: 2,
         price: "$200.00",
         oldPrice: "250.00",
-        like:false,
+        like: false,
     },
     {
         chip: "20% off",
@@ -34,7 +34,7 @@ const products = [
         rating: 3,
         price: "$200.00",
         oldPrice: "250.00",
-        like:false,
+        like: false,
     },
     {
         chip: "20% off",
@@ -43,7 +43,7 @@ const products = [
         rating: 5,
         price: "$200.00",
         oldPrice: "250.00",
-        like:true,
+        like: true,
     },
     {
         chip: "20% off",
@@ -52,7 +52,7 @@ const products = [
         rating: 4,
         price: "$200.00",
         oldPrice: "250.00",
-        like:true,
+        like: true,
 
     }
 ]
@@ -70,7 +70,7 @@ export default function Home(params) {
         centerPadding: "30px",
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
-        autoplay:true,
+        autoplay: true,
     };
 
     console.log(products)
@@ -100,7 +100,7 @@ export default function Home(params) {
                         {
                             products && products.length > 0 ?
                                 products.map((product, i) =>
-                                    <CardProduct key={i} chip={product.chip} image={product.image} title={product.title} rating={product.rating} price={product.price} oldPrice={product.oldPrice} like={product.like}/>
+                                    <CardProduct key={i} chip={product.chip} image={product.image} title={product.title} rating={product.rating} price={product.price} oldPrice={product.oldPrice} like={product.like} />
                                 )
                                 :
                                 <></>
@@ -114,21 +114,11 @@ export default function Home(params) {
                                 <svg color="secondary" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.0765 9.48063H12.1242L15.5905 0L5 14.5194H11.9522L8.48592 24L19.0765 9.48063Z"></path></svg>
                             </Box>
                             <Box>
-                                <h4 className="title-box">Flash Deals</h4>
+                                <h4 className="title-box">Top Categories</h4>
                             </Box>
                         </Box>
                         <a href="#" className="view-all">View All <ArrowRight /></a>
                     </Box>
-                    <Slider {...settings}>
-                        {
-                            products && products.length > 0 ?
-                                products.map((product, i) =>
-                                    <CardProduct chip={product.chip} image={product.image} title={product.title} rating={product.rating} price={product.price} oldPrice={product.oldPrice} like={product.like}/>
-                                )
-                                :
-                                <></>
-                        }
-                    </Slider>
                 </Container>
             </Box>
         </>
