@@ -1,5 +1,5 @@
 import MainLayout from "../components/MainLayout"
-import Home from "../pages/Home"
+import Home from "../containers/Home"
 
 
 const routers = [

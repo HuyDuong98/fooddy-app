@@ -1,0 +1,126 @@
+[
+    {
+        "flash_deals":[
+            {
+                "id":"0",
+                "chip": "20% off",
+                "image": "../asset/images/sp1.png",
+                "title": "Black Acid Wash",
+                "rating": 1,
+                "price": 200,
+                "oldPrice": 250,
+                "like": true
+            },
+            {
+                "id":"1",
+                "chip": "20% off",
+                "image": "../asset/images/sp2.png",
+                "title": "Black Acid Wash",
+                "rating": 2,
+                "price": 200,
+                "oldPrice": 250,
+                "like": false
+            },
+            {
+                "id":"2",
+                "chip": "20% off",
+                "image": "../asset/images/sp3.png",
+                "title": "Black Acid Wash",
+                "rating": 3,
+                "price": 200,
+                "oldPrice": 250,
+                "like": false
+            },
+            {
+                "id":"3",
+                "chip": "20% off",
+                "image": "../asset/images/sp4.png",
+                "title": "Black Acid Wash",
+                "rating": 5,
+                "price": 200,
+                "oldPrice": 250,
+                "like": true
+            },
+            {
+                "id":"4",
+                "chip": "20% off",
+                "image": "../asset/images/sp1.png",
+                "title": "Black Acid Wash",
+                "rating": 4,
+                "price": 200,
+                "oldPrice": 250,
+                "like": true
+        
+            },
+            {
+                "id":"5",
+                "chip": "20% off",
+                "image": "../asset/images/sp1.png",
+                "title": "Black Acid Wash",
+                "rating": 4,
+                "price": 200,
+                "oldPrice": 250,
+                "like": true
+        
+            },
+            {
+                "id":"6",
+                "chip": "20% off",
+                "image": "../asset/images/sp1.png",
+                "title": "Black Acid Wash",
+                "rating": 4,
+                "price": 200,
+                "oldPrice": 250,
+                "like": true
+            },
+            {
+                "id":"7",
+                "chip": "20% off",
+                "image": "../asset/images/sp1.png",
+                "title": "Black Acid Wash",
+                "rating": 4,
+                "price": 200,
+                "oldPrice": 250,
+                "like": true
+            }
+        ],
+        "top_categories":[
+            {
+                "id":"0",
+                "tag_name":"Watch",
+                "num_order":"3k orders this week",
+                "image":"https://bazar-react.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fbanners%2Fcategory-2.png&w=3840&q=75"
+            },
+            {
+                "id":"1",
+                "tag_name":"Headphone",
+                "num_order":"3k orders this week",
+                "image":"https://bazar-react.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fbanners%2Fcategory-1.png&w=3840&q=75"
+            },
+            {
+                "id":"2",
+                "tag_name":"Sunglass",
+                "num_order":"3k orders this week",
+                "image":"https://bazar-react.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fbanners%2Fcategory-3.png&w=3840&q=75"
+            },
+            {
+                "id":"3",
+                "tag_name":"Headphone",
+                "num_order":"3k orders this week",
+                "image":"https://bazar-react.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fbanners%2Fcategory-1.png&w=3840&q=75"
+            },
+            {
+                "id":"4",
+                "tag_name":"Watch",
+                "num_order":"3k orders this week",
+                "image":"https://bazar-react.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fbanners%2Fcategory-2.png&w=3840&q=75"
+            },
+            {
+                "id":"5",
+                "tag_name":"Sunglass",
+                "num_order":"3k orders this week",
+                "image":"https://bazar-react.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fbanners%2Fcategory-3.png&w=3840&q=75"
+            }
+        ]
+    }
+]

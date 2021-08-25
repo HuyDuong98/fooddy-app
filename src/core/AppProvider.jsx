@@ -10,11 +10,18 @@ import {
 
 export let Context = React.createContext()
 function Provider({ children }) {
+    //Toggle modal cart
+    const [showCart, setShowCart] = useState(false);
+    const toggleDrawer = (open) => (event) => {
+        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setShowCart(open);
+    };
+
     return (
-        // <Context.Provider value={}>
-        //         {children}
-        // </Context.Provider>
-        <Context.Provider value={null}>
+        <Context.Provider value={{ showCart, toggleDrawer }}>
             {children}
         </Context.Provider>
     );

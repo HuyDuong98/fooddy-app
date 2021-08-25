@@ -1,0 +1,42 @@
+@import '../common/colours';
+
+.footerContainer{
+    background-color: $app--bacground;
+    padding-top: 90px;
+    padding-bottom: 90px;
+    margin-top: 50px;
+    color: rgb(174, 180, 190);
+
+    .logo{
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    h3{
+        font-size: 25px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        line-height: 1;
+        color: white;
+    }
+
+    ul{
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-inline-start: 0;
+
+        li{
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .social{
+        button{
+            color: rgb(174, 180, 190);
+            margin-right: 15px;
+            margin-top: 15px;
+        }
+    }
+    
+}

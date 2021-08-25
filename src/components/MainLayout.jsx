@@ -1,6 +1,7 @@
 import Home from "../pages/Home";
 import Footer from "./Footer";
-import Header from "./Header";
+import Header from "../containers/Header";
+import BottomNavigate from "./BottomNavigate";
 
 export default function MainLayout({ children }) {
     return (
@@ -8,6 +9,7 @@ export default function MainLayout({ children }) {
             <Header />
             {children}
             <Footer />
+            <BottomNavigate />
         </>
     )
 };

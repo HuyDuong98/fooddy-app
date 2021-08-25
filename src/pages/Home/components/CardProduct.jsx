@@ -3,6 +3,7 @@ import { Box, Card, CardContent, Typography, CardActions, Button, Chip, Fab, mak
 import Rating from '@material-ui/lab/Rating';
 import { Link } from "react-router-dom"
 import React, { useState } from "react";
+import Style from "../../../style/components/CardProduct.module.scss"
 
 const useStyles = makeStyles((theme) => ({
     boxdflex: {
@@ -58,8 +59,8 @@ const useStyles = makeStyles((theme) => ({
 
     },
     image: {
-        width: "274px",
-        height: "274px",
+        maxWidth: "100%",
+        maxHeight: "100%",
     },
     addCart: {
         display: 'flex',
@@ -99,33 +100,21 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function CardProduct({ chip, image, title, rating, price, oldPrice, like }) {
+export default function CardProduct({ chip, image, title, rating, price, oldPrice, like, quantity, add, remove }) {
     const classes = useStyles()
-    let [quantity, setQuantity] = useState(0)
-
-    function addProduct() {
-        let qt = quantity + 1
-        setQuantity(qt)
-        //console.log(quantity)
-    }
-
-    function removeProduct() {
-        let qt = quantity - 1
-        setQuantity(qt)
-    }
 
     return (
-        <Box className={classes.boxdflex}>
+        <Box className={Style.boxProduct}>
             <Card className={classes.cardProduct} >
                 <Box>
-                    <Chip color="secondary" size="small" label={chip} className={classes.chip} />
+                    <Chip color="primary" size="small" label={chip} className={classes.chip} />
                     <Box className="extra-icons">
                         <Fab aria-label="see" size="small">
                             <Visibility size="small" />
                         </Fab>
                         <Fab aria-label="like" size="small">
                             {
-                                like ? <Favorite size="small" color="secondary" onClick={() => console.log("set like false")} /> : <FavoriteBorder size="small" onClick={() => console.log("set like true")} />
+                                like ? <Favorite size="small" color="primary" onClick={() => console.log("set like false")} /> : <FavoriteBorder size="small" />
                             }
 
                         </Fab>
@@ -142,15 +131,15 @@ export default function CardProduct({ chip, image, title, rating, price, oldPric
                         </Box>
                         <Box className={classes.price}>
                             <Box>
-                                <Typography color="secondary">{price}</Typography>
+                                <Typography color="primary">${price}.00</Typography>
                             </Box>
                             <Box>
-                                <Typography color="textSecondary"><del>{oldPrice}</del></Typography>
+                                <Typography><del>${oldPrice}.00</del></Typography>
                             </Box>
                         </Box>
                     </Box>
                     <Box className={classes.addCart}>
-                        <Button variant="outlined" color="secondary" size="small" onClick={addProduct}>
+                        <Button variant="outlined" color="primary" size="small" onClick={add} >
                             <Add size="small" />
                         </Button>
 
@@ -158,7 +147,7 @@ export default function CardProduct({ chip, image, title, rating, price, oldPric
                             quantity && quantity != 0 ?
                                 <>
                                     <Box ><strong>{quantity}</strong></Box>
-                                    <Button variant="outlined" color="secondary" size="small" onClick={removeProduct}>
+                                    <Button variant="outlined" color="primary" size="small" onClick={remove}>
                                         <Remove size="small" />
                                     </Button>
                                 </>

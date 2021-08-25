@@ -1,0 +1,65 @@
+@import '../common/my_vars';
+
+.bannerMain{
+    display: 'flex';
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: auto;
+    user-select: none;
+    margin-right: auto;
+    justify-content: center;
+    width: calc(100% - 24px);
+    padding-left:0px;
+    padding-right:0px;
+    user-select: none;
+
+    @include Responsive(MD) {
+        padding-left:150px;
+        padding-right:150px;
+	}
+
+    .infomation{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-left: auto;
+        user-select: none;
+        margin-right: auto;
+        justify-content: center;
+        height: 100%;
+        padding-bottom: 50px;
+
+        @include Responsive(MD) {
+            display: block;
+            padding-bottom: 0;
+        }
+
+        .title{
+            color: #99a7c1;
+            font-size: 32px;
+            margin-top: 0;
+            font-family:Open Sans,Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 1.35rem;
+            padding-top: 24px;
+
+            @include Responsive(MD) {
+                font-size: 50px;
+                padding-top: 0px;
+            }
+        }
+    }
+
+    .image{
+        display: none;
+        width: 100%;
+  
+        @include Responsive(MD) {
+           display: block;
+        }
+    }
+}
+
+
+

@@ -1,0 +1,30 @@
+@import '../common/my_vars';
+
+.subBannner{
+    width: 100%;
+    display:inline-block;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+
+    @include Responsive(MD) {
+        display: flex;
+	}
+
+    img{
+        width: 100%;
+    }
+}
+
+.bottomNavigate{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    display: flex;
+    
+    @include Responsive(MD) {
+        display: none;
+	}
+}

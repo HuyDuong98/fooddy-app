@@ -1,0 +1,65 @@
+@import '../common/colours';
+
+.cardPaper{
+    box-shadow:#03004717 0px 1px 3px !important;
+
+    .cardContent{
+        &:last-child{
+            padding-bottom: 16px;
+        }
+    }
+}
+
+.link{
+    text-decoration: none;
+
+    .cardRatings{
+
+        .image{
+            position: relative;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            overflow: hidden;
+
+            img{
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            &::after{
+                position: absolute;
+                content: " ";
+                inset: 0px;
+                z-index: 1;
+                transition: all 250ms ease-in-out 0s;
+            }
+
+            &:hover::after{
+                background: rgba(0, 0, 0, 0.3);
+            }
+        }
+    
+        small{
+            font-weight: 600;
+            font-size: 14px;
+            color:$app--text;
+        }
+    
+    
+        .name{
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 5px;
+            color: $app--text;
+            margin-bottom: 0;
+        }
+    
+        .price{
+            margin-top: 10px;
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+        }
+    }
+}
+

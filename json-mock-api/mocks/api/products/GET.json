@@ -1,0 +1,90 @@
+[
+    {
+        "id":"0",
+        "chip": "20% off",
+        "image": "../asset/images/sp1.png",
+        "title": "Black Acid Wash",
+        "rating": 1,
+        "price": "$200.00",
+        "oldPrice": "250.00",
+        "like": [
+            {
+                "abc":"abc",
+                "edf":"edf"   
+            }
+        ]
+    },
+    {
+        "id":"1",
+        "chip": "20% off",
+        "image": "../asset/images/sp2.png",
+        "title": "ABC Bl",
+        "rating": 2,
+        "price": "$200.00",
+        "oldPrice": "250.00",
+        "like": false
+    },
+    {
+        "id":"2",
+        "chip": "20% off",
+        "image": "../asset/images/sp3.png",
+        "title": "Black Acid Wash",
+        "rating": 3,
+        "price": "$200.00",
+        "oldPrice": "250.00",
+        "like": false
+    },
+    {
+        "id":"3",
+        "chip": "20% off",
+        "image": "../asset/images/sp4.png",
+        "title": "Black Acid Wash",
+        "rating": 5,
+        "price": "$200.00",
+        "oldPrice": "250.00",
+        "like": true
+    },
+    {
+        "id":"4",
+        "chip": "20% off",
+        "image": "../asset/images/sp1.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": "$200.00",
+        "oldPrice": "250.00",
+        "like": true
+
+    },
+    {
+        "id":"5",
+        "chip": "20% off",
+        "image": "../asset/images/sp1.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": "$200.00",
+        "oldPrice": "250.00",
+        "like": true
+
+    },
+    {
+        "id":"6",
+        "chip": "20% off",
+        "image": "../asset/images/sp1.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": "$200.00",
+        "oldPrice": "250.00",
+        "like": true
+
+    },
+    {
+        "id":"7",
+        "chip": "20% off",
+        "image": "../asset/images/sp1.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": "$200.00",
+        "oldPrice": "250.00",
+        "like": true
+    }
+]

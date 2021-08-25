@@ -1,86 +1,144 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Menu from "../../components/Menu";
-import { Paper, Box, Container, IconButton } from "@material-ui/core";
+import CardCategory from "./components/CardCategory";
+import NewArrivals from "./components/NewArrivals";
+import CardProduct from "./components/CardProduct";
+import Banner from "./components/Banner";
+import TopRatings from "./components/TopRatings"
+import FeaturedBrands from "./components/FeaturedBrands";
+import { Paper, Box, Container, IconButton, Grid, Avatar } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
 import { ArrowRight, ArrowForward, ArrowBack } from "@material-ui/icons";
 import useStyles from "../../style/useStyle";
-import Banner from "./components/Banner";
-import CardProduct from "./components/CardProduct";
 import Slider from "react-slick";
+import { ReactComponent as TopCategoriesIcon } from "../../asset/icon/icon_top_categories.svg";
+import { ReactComponent as TopRatingsIcon } from "../../asset/icon/top_ratings.svg";
+import { ReactComponent as FeaturedBrandsIcon } from "../../asset/icon/featured_brands.svg";
+import { ReactComponent as NewArrivalsIcon } from "../../asset/icon/new.svg";
+import { ReactComponent as FlashDealsIcon } from "../../asset/icon/flash_deals.svg";
+import Style from "../../style/page/home.module.scss"
 
-const products = [
-    {
-        chip: "20% off",
-        image: "../asset/images/sp1.png",
-        title: "Black Acid Wash",
-        rating: 1,
-        price: "$200.00",
-        oldPrice: "250.00",
-        like: true,
-    },
-    {
-        chip: "20% off",
-        image: "../asset/images/sp2.png",
-        title: "Black Acid Wash",
-        rating: 2,
-        price: "$200.00",
-        oldPrice: "250.00",
-        like: false,
-    },
-    {
-        chip: "20% off",
-        image: "../asset/images/sp3.png",
-        title: "Black Acid Wash",
-        rating: 3,
-        price: "$200.00",
-        oldPrice: "250.00",
-        like: false,
-    },
-    {
-        chip: "20% off",
-        image: "../asset/images/sp4.png",
-        title: "Black Acid Wash",
-        rating: 5,
-        price: "$200.00",
-        oldPrice: "250.00",
-        like: true,
-    },
-    {
-        chip: "20% off",
-        image: "../asset/images/sp1.png",
-        title: "Black Acid Wash",
-        rating: 4,
-        price: "$200.00",
-        oldPrice: "250.00",
-        like: true,
-
-    }
-]
-
-export default function Home(params) {
-    const classes = useStyles();
-    const danger = red[800];
+export default function Home({ products, cart, fetchProducts, addProductToCart, removeProductToCart }) {
+    const classes = useStyles()
+    const danger = red[800]
     const settings = {
         dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
-        centerMode: false,
-        centerPadding: "30px",
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
+        //autoplay: true,
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    }
+
+    const settingsCategory = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         autoplay: true,
-    };
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    }
 
-    console.log(products)
+    const [productFlashSale, setProductFlashSale] = useState({})
+    const [productMore, setProductMore] = useState({})
+
+    useEffect(() => {
+        fetchProducts();
+    }, [fetchProducts])
+
+    useEffect(() => {
+        setProductFlashSale(products.flash_deals)
+        setProductMore(products.flash_deals)
+    }, [products])
+
+    useEffect(() => {
+        //Update quantity product flash sale
+        if (productFlashSale && productFlashSale.length > 0) {
+            setProductFlashSale(productFlashSale.map(item => {
+                var index = findProductInCart(cart, item)
+                if (index !== -1) {
+                    return { ...item, quantity: cart[index].quantity }
+                }
+                return { ...item, quantity: 0 }
+            }))
+        }
+        //Update quantity product more for you
+        if (productMore && productMore.length > 0) {
+            setProductMore(productMore.map(item => {
+                var index = findProductInCart(cart, item)
+                if (index !== -1) {
+                    return { ...item, quantity: cart[index].quantity }
+                }
+                return { ...item, quantity: 0 }
+            }))
+        }
+
+    }, [cart])
+
+    //console.log("productFlashSale", productFlashSale)
+
+    function handleAddProduct(product) {
+        addProductToCart(product)
+    }
+
+    function handleRemoveProduct(product) {
+        removeProductToCart(product)
+    }
+
+    let findProductInCart = (cart, product) => {
+        let index = -1
+        if (cart.length > 0) {
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].product.id === product.id) {
+                    index = i
+                    break
+                }
+            }
+        }
+        return index
+    }
+
 
     return (
         <>
             <Box className={classes.bgWhite}>
-                <Paper elevation={3} rounded={0} className={classes.paperRoot}>
-                    <Menu />
-                </Paper>
+                <Menu />
                 <Banner />
             </Box>
             <Box>
@@ -88,7 +146,7 @@ export default function Home(params) {
                     <Box className={`${classes.boxdflex} ${classes.subHeader}`}>
                         <Box className={classes.boxdflex}>
                             <Box color={danger} className="icon-title-box">
-                                <svg color="secondary" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.0765 9.48063H12.1242L15.5905 0L5 14.5194H11.9522L8.48592 24L19.0765 9.48063Z"></path></svg>
+                                <FlashDealsIcon color="secondary" className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium" />
                             </Box>
                             <Box>
                                 <h4 className="title-box">Flash Deals</h4>
@@ -98,9 +156,9 @@ export default function Home(params) {
                     </Box>
                     <Slider {...settings}>
                         {
-                            products && products.length > 0 ?
-                                products.map((product, i) =>
-                                    <CardProduct key={i} chip={product.chip} image={product.image} title={product.title} rating={product.rating} price={product.price} oldPrice={product.oldPrice} like={product.like} />
+                            productFlashSale && productFlashSale.length > 0 ?
+                                productFlashSale.map((product, i) =>
+                                    <CardProduct key={i} {...product} add={() => handleAddProduct({ ...product })} remove={() => handleRemoveProduct({ ...product })} />
                                 )
                                 :
                                 <></>
@@ -111,7 +169,7 @@ export default function Home(params) {
                     <Box className={`${classes.boxdflex} ${classes.subHeader}`}>
                         <Box className={classes.boxdflex}>
                             <Box color={danger} className="icon-title-box">
-                                <svg color="secondary" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.0765 9.48063H12.1242L15.5905 0L5 14.5194H11.9522L8.48592 24L19.0765 9.48063Z"></path></svg>
+                                <TopCategoriesIcon color="primary" />
                             </Box>
                             <Box>
                                 <h4 className="title-box">Top Categories</h4>
@@ -119,8 +177,101 @@ export default function Home(params) {
                         </Box>
                         <a href="#" className="view-all">View All <ArrowRight /></a>
                     </Box>
+                    <Slider {...settingsCategory}>
+                        {
+                            products.top_categories && products.top_categories.length > 0 ?
+                                products.top_categories.map((e, i) =>
+                                    <CardCategory key={e.id} tag_name={e.tag_name} num_order={e.num_order} image={e.image} />
+                                )
+                                :
+                                <></>
+                        }
+                    </Slider>
+
+                    <Grid container spacing={5}>
+                        <Grid item md={6} >
+                            <Box className={`${classes.boxdflex} ${classes.subHeader}`}>
+                                <Box className={classes.boxdflex}>
+                                    <Box className="icon-title-box">
+                                        <TopRatingsIcon />
+                                    </Box>
+                                    <Box>
+                                        <h4 className="title-box">Top Ratings</h4>
+                                    </Box>
+                                </Box>
+                                <a href="#" className="view-all">View All <ArrowRight /></a>
+                            </Box>
+                            <Box>
+                                <TopRatings />
+                            </Box>
+                        </Grid>
+                        <Grid item md={6}>
+                            <Box className={`${classes.boxdflex} ${classes.subHeader}`}>
+                                <Box className={classes.boxdflex}>
+                                    <Box className="icon-title-box">
+                                        <FeaturedBrandsIcon />
+                                    </Box>
+                                    <Box>
+                                        <h4 className="title-box">Featured Brands</h4>
+                                    </Box>
+                                </Box>
+                                <a href="#" className="view-all">View All <ArrowRight /></a>
+                            </Box>
+                            <Box>
+                                <FeaturedBrands />
+                            </Box>
+                        </Grid>
+                    </Grid>
+
+                    <Box className={`${classes.boxdflex} ${classes.subHeader}`}>
+                        <Box className={classes.boxdflex}>
+                            <Box className="icon-title-box">
+                                <NewArrivalsIcon />
+                            </Box>
+                            <Box>
+                                <h4 className="title-box">New Arrivals</h4>
+                            </Box>
+                        </Box>
+                        <a href="#" className="view-all">View All <ArrowRight /></a>
+                    </Box>
+                    <Box>
+                        <NewArrivals />
+                    </Box>
+
+                    <Box className={Style.subBannner}>
+                        <img src="../asset/images/banner-1.png" />
+                        <img src="../asset/images/banner-2.png" />
+                    </Box>
+
+                    <Box className={`${classes.boxdflex} ${classes.subHeader}`}>
+                        <Box className={classes.boxdflex}>
+                            <Box>
+                                <h4 className="title-box">More For You</h4>
+                            </Box>
+                        </Box>
+                        <a href="#" className="view-all">View All <ArrowRight /></a>
+                    </Box>
+                    <Box>
+                        <Grid container spacing={3}>
+
+                            {
+                                productMore && productMore.length > 0 ?
+                                    productMore.map((product, i) =>
+                                        <Grid item lg={3}>
+                                            <CardProduct key={i} {...product} add={() => handleAddProduct({ ...product })} remove={() => handleRemoveProduct({ ...product })} />
+                                        </Grid>
+                                    )
+                                    :
+                                    <></>
+                            }
+                        </Grid>
+                    </Box>
+
+
+
                 </Container>
             </Box>
+
         </>
     )
 };
@@ -130,7 +281,7 @@ function NextArrow(props) {
     const classes = useStyles();
     const { className, style, onClick } = props;
     return (
-        <IconButton aria-label="next arrow" size="large" variant="contained" className={classes.btnNextArrow} onClick={onClick}>
+        <IconButton aria-label="next arrow" size="medium" variant="contained" className={classes.btnNextArrow} onClick={onClick}>
             <ArrowForward />
         </IconButton>
     );
@@ -140,7 +291,7 @@ function PrevArrow(props) {
     const classes = useStyles();
     const { className, style, onClick } = props;
     return (
-        <IconButton aria-label="prev arrow" size="large" variant="contained" className={classes.btnPrevArrow} onClick={onClick}>
+        <IconButton aria-label="prev arrow" size="medium" variant="contained" className={classes.btnPrevArrow} onClick={onClick}>
             <ArrowBack />
         </IconButton>
     );

@@ -1,0 +1,32 @@
+@import '../common/colours';
+
+
+
+.cardCategory{
+
+    .content{
+        padding-bottom: 16px !important;
+        position: relative;
+
+        .chipTitle{
+            position: absolute;
+            top: 32px;
+            left: 32px;
+        }
+
+        .chipInfo{
+            position: absolute;
+            top: 32px;
+            right: 32px;
+        }
+    }
+    
+    img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+.chipInfo{
+    background-color: rgba(0, 0, 0, 0.08) !important;
+}

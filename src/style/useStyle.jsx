@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "space-between"
     },
     navbarRoot: {
-        paddingTop: "15px",
-        paddingBottom: "15px",
+        paddingTop: "1rem !important",
+        paddingBottom: "1rem !important",
         "&.show":{
             position:"fixed",
             width:"100%",
@@ -71,11 +71,12 @@ const useStyles = makeStyles((theme) => ({
     },
     title:{
         fontSize:"50px",
-        color:"#2B3445",
+        color:"#99a7c1",
         marginTop:"0",
         marginBottom:"1.35rem",
         lineHeight:"1.2",
-        fontWeight:"bold"
+        fontWeight:"bold",
+        fontFamily: "Open Sans,Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
     },
     cardProduct:{
         position:"relative"
@@ -86,15 +87,15 @@ const useStyles = makeStyles((theme) => ({
     },
     btnNextArrow:{
         position:"absolute",
-        top:"45%",
-        right:"-25px",
+        top:"36%",
+        right:"-20px",
         zIndex:"10",
         backgroundColor:"rgba(0, 0, 0, 0.04)"
     },
     btnPrevArrow:{
         position:"absolute",
-        top:"45%",
-        left:"-25px",
+        top:"36%",
+        left:"-20px",
         zIndex:"10",
         backgroundColor:"rgba(0, 0, 0, 0.04)"
     }
