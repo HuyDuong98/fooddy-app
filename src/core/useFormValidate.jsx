@@ -21,9 +21,9 @@ export default function useFormValidate(initialForm, validate) {
         if(options.localStorage){
             localStorage.setItem(options.localStorage, JSON.stringify(form))
 
-            // return ()=>{
-            //     localStorage.removeItem(options.localStorage)
-            // }
+            return ()=>{
+                localStorage.removeItem(options.localStorage)
+            }
         }
     },[form])
 
@@ -42,14 +42,17 @@ export default function useFormValidate(initialForm, validate) {
         })
     }
 
+    function inputOutFocus(e){
+        check()
+    }
+
     function check() {
         let errorObj = {}
 
         for (let i in rule) {
             let r = rule[i]
             let m = message?.[i] || null
-
-            // console.log('rule', r)
+            
             if (r.required && !form[i]) {
                 errorObj[i] = m?.required || 'Trường này không được để trống'
             }
@@ -57,6 +60,9 @@ export default function useFormValidate(initialForm, validate) {
                 let pattern = r.pattern
                 if (pattern === 'email') pattern = emailPattern
                 if (pattern === 'phone') pattern = phonePattern
+                if(pattern === 'emailorphone'){
+                    pattern = emailPattern || phonePattern
+                } 
                 if (pattern === 'url') pattern = urlPattern
 
                 try {
@@ -72,6 +78,6 @@ export default function useFormValidate(initialForm, validate) {
     }
 
     return {
-        form, error, inputChange, check
+        form, error, inputChange, check, inputOutFocus
     }
 }

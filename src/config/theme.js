@@ -26,7 +26,8 @@ const theme = createTheme({
     MuiButton: {
       root:{
         fontSize:"0.875rem",
-        fontWeight:"600"
+        fontWeight:"600",
+        fontFamily: "Open Sans, Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif"
       },
       containedPrimary:{
         "&:hover": {

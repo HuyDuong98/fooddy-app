@@ -1,5 +1,8 @@
 {
     "sologan": "Giảm Giá 50% Cho Lần Đầu Mua Sắm",
     "class": "Lớp",
-    "text": "Đây là văn bản"
+    "text": "Đây là văn bản",
+    "Profile":"Thông tin cá nhân",
+    "ChangePassword":"Thay đổi mật khẩu",
+    "Logout":"Đăng xuất"
 }

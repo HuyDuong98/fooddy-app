@@ -26,7 +26,13 @@
     transition: all 250ms ease-in-out 0s;
     display: none;
 
+    @include Responsive(MD) {
+        display: block;
+	}
+
+
     .subHeader{
+        display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
@@ -71,6 +77,24 @@
     }
 
  
+}
+.buttonAvatar{
+    padding: 0px;
+
+    .avatar{
+        width: 44px;
+        height: 44px;
+    }
+}
+
+.menuAvatar{
+    .item{
+        svg{
+            width: 24px;
+            margin-right: 6px;
+            color:#5f5f5f
+        }
+    }
 }
 
 .searchBox{

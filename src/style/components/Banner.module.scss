@@ -30,7 +30,6 @@
         padding-bottom: 50px;
 
         @include Responsive(MD) {
-            display: block;
             padding-bottom: 0;
         }
 

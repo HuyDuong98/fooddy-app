@@ -1,5 +1,8 @@
 {
     "sologan": "50% Off For Your First Shopping",
     "class": "Class",
-    "text": "This is text"
+    "text": "This is text",
+    "Profile":"Profile",
+    "ChangePassword":"Change password",
+    "Logout":"Log out"
 }
