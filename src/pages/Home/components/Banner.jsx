@@ -1,13 +1,11 @@
 import { Container, Box, Button, Grid } from "@material-ui/core";
 import { Carousel } from 'react-bootstrap';
-import useStyles from "../../../style/useStyle";
 import { useTranslation } from 'react-i18next';
 import Style from '../../../style/components/Banner.module.scss';
 
 
 
 export default function Banner({ }) {
-    const classes = useStyles()
     const { t } = useTranslation()
     return (
         <Carousel >

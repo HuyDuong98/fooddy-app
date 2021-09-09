@@ -9,11 +9,17 @@ import { Context } from "../core/AppProvider";
 import DropdownList from "../customComponents/DropdownList";
 import Style from "../style/components/Header.module.scss";
 import Login from "../containers/Login";
+import MenuComponent from '../components/Menu.jsx';
 
 import { useTranslation } from 'react-i18next';
+import { useHistory, useRouteMatch } from "react-router-dom";
+import { pagePath } from '../utils/constants/pagePath';
+import { ReactComponent as Logo} from "../asset/images/logo.svg";
 
 export default function Header(props) {
     let { cart, categories, fetchCategories, auth, logoutPage } = props
+    let history = useHistory()
+    let {url} = useRouteMatch()
     const { t } = useTranslation()
     const classes = useStyles()
 
@@ -68,27 +74,32 @@ export default function Header(props) {
         closeOptionAvatar()
     }
 
+    const handelProfile = () => {
+        closeOptionAvatar()
+        history.push(pagePath.profileInfo)
+    }
+
     return (
         <>
             <Navbar expand="lg" className={`${classes.bgWhite} ${classes.navbarRoot} ${show ? "show" : ""}`} >
                 <Container className="d-flex justify-content-between">
                     <Box className={Style.brand}>
-                        <Navbar.Brand href="#">
-                            <img src="../asset/images/logo.svg" alt="" width="130px" height="34px" />
+                        <Navbar.Brand href="/">
+                            <Logo alt="" width="130px" height="34px" />
                         </Navbar.Brand>
                         {
                             show ? <DropdownList istitle={false} /> : <></>
                         }
                     </Box>
-                    <div className={`searchwrapper ${Style.searchBox}`}>
-                        <div className={`searchbox ${classes.searchNavbar}`}>
+                    <div className={Style.searchBox}>
+                        <div className={Style.searchNavbar}>
                             <Grid container>
                                 <Grid item md={8} xs={7}>
                                     <SearchOutlined />
-                                    <input type="text" className="form-control" placeholder="Search by Keywords..." name="category" onChange={handleChange} />
+                                    <input type="text" className={Style.formControl} placeholder="Search by Keywords..." name="category" onChange={handleChange} />
                                 </Grid>
                                 <Grid item md={4} xs={5}>
-                                    <Form.Select aria-label="Default select example" className="form-control category">
+                                    <Form.Select aria-label="Default select example" className={Style.selectCategory}>
                                         <option value="All Category">All Category</option>
                                         <option value="Car">Car</option>
                                         <option value="Clothes">Clothes</option>
@@ -128,18 +139,18 @@ export default function Header(props) {
                                         onClose={closeOptionAvatar}
                                         className={Style.menuAvatar}
                                     >
-                                        <MenuItem onClick={closeOptionAvatar} className={Style.item}><PersonOutline size="small" /> {t('Profile')}</MenuItem>
+                                        <MenuItem onClick={handelProfile} className={Style.item}><PersonOutline size="small" /> {t('Profile')}</MenuItem>
                                         <MenuItem onClick={closeOptionAvatar} className={Style.item}><LockOpen size="small" /> {t('ChangePassword')}</MenuItem>
                                         <MenuItem onClick={handleLogout} className={Style.item}><ExitToApp size="small" /> {t('Logout')}</MenuItem>
                                     </Menu>
                                 </>
                             ) : (
-                                <Button variant="light" className="user-icon" onClick={handleClickOpen}>
+                                <Button variant="light" className={Style.userIcon} onClick={handleClickOpen}>
                                     <PermIdentity />
                                 </Button>
                             )
                         }
-                        <Button variant="light" className={`cart-icon ${Style.buttonCart}`} onClick={toggleDrawer(true)}>
+                        <Button variant="light" className={Style.buttonCart} onClick={toggleDrawer(true)}>
                             <ShoppingCartOutlinedIcon />
                             {
                                 cart && cart.length > 0 &&
@@ -150,11 +161,14 @@ export default function Header(props) {
                     </div>
                 </Container>
             </Navbar>
+
+            <Box className={classes.bgWhite}>
+                <MenuComponent />
+            </Box>
             <CartModal />
             {
                 auth && !auth.status && <Login open={openModalLogin} handleClose={handleClose} />
             }
-
         </>
     )
 };

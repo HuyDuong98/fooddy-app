@@ -1,18 +1,23 @@
 import MainLayout from "../components/MainLayout"
 import Home from "../containers/Home"
-
+import Profile from "../containers/Profile"
 
 const routers = [
-    
+
     {
         component: MainLayout,
         routers: [
             {
                 path: '/',
                 component: Home,
-                auth: true,
+                auth: false,
                 exact: true
             },
+            {
+                path: '/profile',
+                component: Profile,
+                auth: true,
+            }
         ]
     },
     // {

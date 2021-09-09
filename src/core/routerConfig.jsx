@@ -21,9 +21,9 @@ export default function renderRouters(routers, parrentPath='') {
                     children = renderRouters(childRouters, path)
                 }
 
-                // if (auth) {
-                //     return <PrivateRouter exact={exact} path={path} component={(prop) => <Component {...prop}>{children}</Component>} />
-                // }
+                if (auth) {
+                    return <PrivateRouter exact={exact} path={path} component={(prop) => <Component {...prop}>{children}</Component>} />
+                }
                 return <Route exact={exact} path={path} component={(prop) => <Component {...prop}>{children}</Component>} />
             })
         }

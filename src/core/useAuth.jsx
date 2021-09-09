@@ -1,7 +1,3 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
-import { loginPage } from "../redux/authen"
-
 export default function useAuth() {
     const loginAPIs = {
         login: async (data) => {

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Home from '../pages/Home';
-import { setProducts, fetchProducts } from '../redux/products';
-import { addProductToCart, removeProductToCart } from '../redux/cart';
+import { setProducts, fetchProducts } from '../redux/reducer/products';
+import { addProductToCart, removeProductToCart } from '../redux/reducer/cart';
 
 const mapStateToProps = (state) => {
     return {

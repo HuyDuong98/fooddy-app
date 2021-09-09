@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import Menu from "../../components/Menu";
 import CardCategory from "./components/CardCategory";
 import NewArrivals from "./components/NewArrivals";
-import CardProduct from "./components/CardProduct";
+import CardProduct from "../../containers/CardProduct";
 import Banner from "./components/Banner";
 import TopRatings from "./components/TopRatings"
 import FeaturedBrands from "./components/FeaturedBrands";
-import { Paper, Box, Container, IconButton, Grid, Avatar } from "@material-ui/core";
+import { Box, Container, IconButton, Grid } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
 import { ArrowRight, ArrowForward, ArrowBack } from "@material-ui/icons";
 import useStyles from "../../style/useStyle";
@@ -87,32 +87,6 @@ export default function Home({ products, cart, fetchProducts, addProductToCart, 
         setProductMore(products.flash_deals)
     }, [products])
 
-    useEffect(() => {
-        //Update quantity product flash sale
-        if (productFlashSale && productFlashSale.length > 0) {
-            setProductFlashSale(productFlashSale.map(item => {
-                var index = findProductInCart(cart, item)
-                if (index !== -1) {
-                    return { ...item, quantity: cart[index].quantity }
-                }
-                return { ...item, quantity: 0 }
-            }))
-        }
-        //Update quantity product more for you
-        if (productMore && productMore.length > 0) {
-            setProductMore(productMore.map(item => {
-                var index = findProductInCart(cart, item)
-                if (index !== -1) {
-                    return { ...item, quantity: cart[index].quantity }
-                }
-                return { ...item, quantity: 0 }
-            }))
-        }
-
-    }, [cart])
-
-    //console.log("productFlashSale", productFlashSale)
-
     function handleAddProduct(product) {
         addProductToCart(product)
     }
@@ -121,24 +95,9 @@ export default function Home({ products, cart, fetchProducts, addProductToCart, 
         removeProductToCart(product)
     }
 
-    let findProductInCart = (cart, product) => {
-        let index = -1
-        if (cart.length > 0) {
-            for (var i = 0; i < cart.length; i++) {
-                if (cart[i].product.id === product.id) {
-                    index = i
-                    break
-                }
-            }
-        }
-        return index
-    }
-
-
     return (
         <>
             <Box className={classes.bgWhite}>
-                <Menu />
                 <Banner />
             </Box>
             <Box>

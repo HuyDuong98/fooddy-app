@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CartModal from '../components/CartModal';
-import { addProductToCart, removeAllProductToCart, removeProductToCart} from '../redux/cart';
+import { addProductToCart, removeAllProductToCart, removeProductToCart} from '../redux/reducer/cart';
 
 const mapStateToProps = (state) => {
     return {

@@ -12,6 +12,7 @@ const initState = {
 const LOGIN_PAGE = 'LOGIN_PAGE'
 const LOGOUT_PAGE = 'LOGOUT_PAGE'
 const MESSAGE = 'MESSAGE'
+const AUTHEN = 'token'
 
 export const setLogin = (items) => ({
     type: LOGIN_PAGE,
@@ -26,7 +27,7 @@ export const setMessage = (message) => ({
 export const loginPage = (data) => async (dispatch) => {
     await axios.post('http://localhost:8080/api/login', data)
         .then(respone => {
-            dispatch(setLogin(respone.data))
+            dispatch(setLogin(respone.data));
         })
         .catch(error => {
             dispatch(setMessage("Tài khoản hoặc mật khẩu không chính xác"))
@@ -40,11 +41,13 @@ export const logoutPage = () => ({
 const reducer = (state = initState, action) => {
     switch (action.type) {
         case LOGIN_PAGE:
+            localStorage.setItem(AUTHEN, action.payload.token)
             return {
                 ...state,
                 items: action.payload
             }
         case LOGOUT_PAGE:
+            localStorage.removeItem(AUTHEN);
             return {
                 ...state,
                 items: {
@@ -55,6 +58,7 @@ const reducer = (state = initState, action) => {
                 message:null
             }
         case MESSAGE:
+            localStorage.removeItem(AUTHEN);
             return {
                 ...state,
                 message: action.payload

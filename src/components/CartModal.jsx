@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Divider, Grid, SwipeableDrawer, Typography } from "@material-ui/core"
+import { Box, Button, Divider, SwipeableDrawer, Typography } from "@material-ui/core"
 import { Fragment, useEffect, useState } from "react"
 import { useContext } from "react"
 import { Context } from "../core/AppProvider"
@@ -17,8 +17,6 @@ export default function CartModal({ cart, removeAllProductToCart, removeProductT
     useEffect(() => {
         setCategories(cart)
     }, [cart])
-
-    console.log("cart: ", categories)
 
     function handleRemoveAllProductCart(product) {
         removeAllProductToCart(product)

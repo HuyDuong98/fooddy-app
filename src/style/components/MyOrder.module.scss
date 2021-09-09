@@ -1,0 +1,30 @@
+@import '../common/my_vars';
+
+.textOrder{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 6px;
+    text-align: left;
+    text-transform: none;
+    white-space: normal;
+}
+
+.pending{
+    background-color: rgb(232, 232, 238);
+    color: rgb(12, 14, 48);
+}
+
+.processing{
+    @extend .pending;
+}
+
+.delivered{
+    color: rgb(11, 119, 36);
+    background-color: rgb(231, 249, 237);
+}
+
+.cancelled{
+    color: rgb(255, 41, 41);
+    background-color: rgb(255, 234, 234);
+}

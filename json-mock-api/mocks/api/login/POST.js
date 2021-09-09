@@ -21,9 +21,13 @@ module.exports = (req, res) => {
 
     let user = {
         avatar: "https://scontent.fsgn5-2.fna.fbcdn.net/v/t1.6435-1/p200x200/101590822_1494555610711810_3810730406109265562_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=7206a8&_nc_ohc=WcHVyFtSWbQAX9XQ7eV&_nc_ht=scontent.fsgn5-2.fna&oh=eeeb8918c00eb38f2ab9934119892656&oe=6151BE90",
-        firstName: "Dương",
+        firstName: "Dương Ngọc",
         lastName: "Huy",
         phoneNumber: "0353033933",
+        email: username,
+        birthDate:"02 Sep, 1998",
+        rank:"Silver user",
+        balance:"5000",
         address: "276/11 Thống Nhất, Phường 16 ,Quận Gò Vấp, Tp. Hồ Chí Minh"
     }
 

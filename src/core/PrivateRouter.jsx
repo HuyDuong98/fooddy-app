@@ -1,11 +1,18 @@
 import { Redirect, Route } from "react-router";
-import useAuth from "./useAuth";
+import { connect } from 'react-redux';
 
-export default function PrivateRouter(props){
-    let {login} = useAuth()
-    if(login) {
-        return <Route {...props}/>
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth.items
     }
-
-    return <Redirect to='/login' />
 }
+
+function PrivateRouter(props) {
+    let {auth} = props
+    if(auth.token){
+        return <Route {...props} />
+    }
+    return <Redirect to='/' />
+}
+
+export default connect(mapStateToProps)(PrivateRouter)

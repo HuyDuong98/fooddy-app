@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Header from '../components/Header';
-import { fetchCategories } from '../redux/categories';
-import { logoutPage } from '../redux/authen';
+import { fetchCategories } from '../redux/reducer/categories';
+import { logoutPage } from '../redux/reducer/authen';
 
 const mapStateToProps = (state) => {
     return {

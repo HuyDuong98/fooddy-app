@@ -1,0 +1,52 @@
+.display{
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 10px;
+
+    > *{
+       flex: 1 1 0;
+    }
+}
+
+.gridTitle{
+    @extend .display;
+    padding: 0px 18px;
+    background: none;
+    box-shadow: none;
+    overflow: hidden;
+    color: rgb(43, 52, 69);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+    h5{
+        margin: 0px 6px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: rgb(125, 135, 156);
+        text-align: left;
+        text-transform: none;
+        white-space: normal;
+    }
+}
+
+.gridContent{
+    a{
+        text-decoration: none;
+    }
+    .item{
+        @extend .display;
+        background-color: rgb(255, 255, 255);
+        color: rgb(43, 52, 69);
+        transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        box-shadow: #03004717 0px 1px 3px;
+        overflow: hidden;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 6px 18px;
+        > *{
+            line-height: 1.5;
+        }
+    }
+}

@@ -25,3 +25,44 @@ $XL:1170px;
    @media only screen and (min-width: $XL) { @content; } 
   }
 }
+
+.header{
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  svg{
+      margin-right: 8px;
+      color: $app--primary;
+  }
+}
+
+.spacingLine{
+  margin-bottom: 2rem;
+}
+
+
+.gridView{
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 10px;
+
+  .item{
+    padding: 8px;
+    
+    small{
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: $app--icon;
+      margin-bottom: 4px;
+      text-align: left;
+      text-transform: none;
+      white-space: normal;
+    }
+  }
+  
+  > *{
+      flex: 1 1 0;
+  }
+}

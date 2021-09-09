@@ -18,19 +18,24 @@ import theme from './config/theme';
 import App from './App';
 
 import { Provider } from "react-redux";
-import store from "./redux/store"
+import store, { persistor } from "./redux/store";
+import { PersistGate } from 'redux-persist/integration/react';
+import { CssBaseline } from '@material-ui/core';
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <ThemeProvider theme={theme}>
-        <StylesProvider injectFirst>
-          <I18nextProvider i18n={i18n}>
-            <App />
-          </I18nextProvider>
-        </StylesProvider>
-      </ThemeProvider>
-    </React.StrictMode>
+    <PersistGate loading={null} persistor={persistor}>
+      <React.StrictMode>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <StylesProvider injectFirst>
+            <I18nextProvider i18n={i18n}>
+              <App />
+            </I18nextProvider>
+          </StylesProvider>
+        </ThemeProvider>
+      </React.StrictMode>
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );

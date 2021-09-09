@@ -1,8 +1,8 @@
 import { Visibility, FavoriteBorder, Add, Remove, Favorite } from "@material-ui/icons";
-import { Box, Card, CardContent, Typography, CardActions, Button, Chip, Fab, makeStyles } from "@material-ui/core";
+import { Box, Card, CardContent, Typography, Button, Chip, Fab, makeStyles } from "@material-ui/core";
 import Rating from '@material-ui/lab/Rating';
 import { Link } from "react-router-dom"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Style from "../../../style/components/CardProduct.module.scss"
 
 const useStyles = makeStyles((theme) => ({
@@ -100,8 +100,65 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function CardProduct({ chip, image, title, rating, price, oldPrice, like, quantity, add, remove }) {
+export default function CardProduct(props) {
+    const { id, chip, image, title, rating, price, oldPrice, cart, add, remove, favorite, addProductFavorite, removeProductFavorite } = props
+    const [like, setLike] = useState(false)
+    const [quantity, setQuantity] = useState(0)
     const classes = useStyles()
+
+    useEffect(() => {
+        let index = -1
+        index = findItemInArrayById(favorite, id)
+        if (index === -1) {
+            setLike(false)
+        } else {
+            setLike(true)
+        }
+    }, [favorite])
+
+    useEffect(() => {
+        let indexCart = -1
+        indexCart = findProductInCart(cart, id)
+        if (indexCart === -1) {
+            setQuantity(0)
+        } else {
+            setQuantity(cart[indexCart].quantity)
+        }
+    }, [cart])
+
+    const addFavorite = (product) => {
+        addProductFavorite(product)
+    }
+
+    const removeFavorite = (product) => {
+        removeProductFavorite(product)
+    }
+
+    const findItemInArrayById = (array, itemID) => {
+        let index = -1
+        if (array.length > 0) {
+            for (let i = 0; i < array.length; i++) {
+                if (array[i].id === itemID) {
+                    index = i
+                    break
+                }
+            }
+        }
+        return index
+    }
+
+    const findProductInCart = (cart, productID) => {
+        let index = -1
+        if (cart.length > 0) {
+            for (let i = 0; i < cart.length; i++) {
+                if (cart[i].product.id === productID) {
+                    index = i
+                    break
+                }
+            }
+        }
+        return index
+    }
 
     return (
         <Box className={Style.boxProduct}>
@@ -114,7 +171,10 @@ export default function CardProduct({ chip, image, title, rating, price, oldPric
                         </Fab>
                         <Fab aria-label="like" size="small">
                             {
-                                like ? <Favorite size="small" color="primary" onClick={() => console.log("set like false")} /> : <FavoriteBorder size="small" />
+                                like ?
+                                    <Favorite size="small" color="primary" onClick={() => removeFavorite({ id })} />
+                                    :
+                                    <FavoriteBorder size="small" onClick={() => addFavorite({ id, chip, image, title, rating, price, oldPrice, like })} />
                             }
 
                         </Fab>
@@ -144,7 +204,7 @@ export default function CardProduct({ chip, image, title, rating, price, oldPric
                         </Button>
 
                         {
-                            quantity && quantity != 0 ?
+                            quantity && quantity !== 0 ?
                                 <>
                                     <Box ><strong>{quantity}</strong></Box>
                                     <Button variant="outlined" color="primary" size="small" onClick={remove}>

@@ -1,0 +1,57 @@
+@import '../common/my_vars';
+
+.boxAvatar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 6px;
+    padding-right: 6px;
+
+    .boxAvatar{
+        justify-content: flex-start;
+    }
+
+    .avatar{
+        margin-right: 12px;
+        width: 64px;
+        height: 64px;
+    }
+
+    .rank{
+        margin: 0px;
+        text-transform: uppercase;
+        font-weight: 400;
+        line-height: 1.5;
+        color: $app--icon;
+        letter-spacing: 0.2em;
+    }
+
+    h5{
+        margin-bottom: 0px;
+        margin-top: 0px;
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.5;
+        text-transform: none;
+        white-space: normal;
+    }
+}
+
+.boxNumber{
+    text-align: center;
+    p{
+        font-size: 0.75rem;
+        color: $app--icon;
+    }
+
+    .number{
+        margin-bottom: 0px;
+        margin-top: 0px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1.5;
+        color:$app--primary;
+        text-transform: none;
+        white-space: normal;
+    }
+}

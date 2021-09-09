@@ -5,7 +5,6 @@ const initState = {
 };
 
 const GET_PRODUCTS = 'GET_PRODUCTS'
-const ADD_CART = 'ADD_CART'
 
 export const setProducts = (items) => ({
     type: GET_PRODUCTS,

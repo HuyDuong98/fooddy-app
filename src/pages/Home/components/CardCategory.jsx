@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, Chip, Grid } from "@material-ui/core";
+import { Card, CardContent, Chip, Grid } from "@material-ui/core";
 import Style from "../../../style/components/CardCategory.module.scss";
 
 export default function CardCategory({ tag_name, num_order, image }) {
