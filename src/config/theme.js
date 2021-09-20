@@ -74,7 +74,7 @@ const theme = createTheme({
           paddingBottom: "1rem",
         }
       }
-    }
+    },
   },
   // props: {
   //   MuiTypography: {

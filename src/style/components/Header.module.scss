@@ -1,12 +1,18 @@
 @import '../common/my_vars';
 
+.navHeader{
+    box-shadow: #2b34451a 0px 4px 16px;
+    transition: all 250ms ease-in-out 0s;
+    position: relative;
+}
+
 .brand{
     display:none;
     align-items: flex-end;
 
     @include Responsive(MD) {
         display: flex;
-	}
+    }
 }
 
 .navbarAction{
@@ -14,7 +20,7 @@
 
     @include Responsive(MD) {
         display: flex;
-	}
+    }
 }
 
 .paperSubHeader{
@@ -37,6 +43,7 @@
         align-items: center;
         justify-content: space-between;
         z-index: 10;
+        position: relative;
 
         .menuList{
             display: flex;
@@ -62,7 +69,6 @@
         svg{
             width: 24px;
             margin-right: 6px;
-            color:#5f5f5f
         }
     }
 }

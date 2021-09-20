@@ -1,10 +1,9 @@
-import { Dialog, DialogContent, Button, Typography, TextField, FormControl, Box, Divider, IconButton } from '@material-ui/core';
+import { Dialog, DialogContent, Button, Typography, TextField, FormControl, Box, Divider } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { ReactComponent as FaceBookIcon } from "../asset/icon/facebook-filled-white.svg";
 import { ReactComponent as GoogleIcon } from "../asset/icon/google.svg";
 import Style from '../style/components/Login.module.scss';
 import useFormValidate from "../core/useFormValidate";
-import { useEffect, useState } from 'react';
 
 export default function Login({ message, open, handleClose, loginPage }) {
     let { form, error, inputChange, check, inputOutFocus } = useFormValidate({

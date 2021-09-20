@@ -4,7 +4,7 @@ import Menu from './components/Menu';
 import { pagePath } from "../../utils/constants/pagePath";
 import MyOrder from "./components/MyOrder";
 import MyProfile from "../../containers/MyProfile";
-import MyWishlist from './components/MyWishlist';
+import MyWishlist from '../../containers/MyWishlist';
 import SupportTickets from './components/SupportTickets';
 import MyAddresses from './components/MyAddresses';
 import PaymentMethods from './components/PaymentMethods';

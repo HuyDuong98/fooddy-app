@@ -165,11 +165,11 @@ export default function CardProduct(props) {
             <Card className={classes.cardProduct} >
                 <Box>
                     <Chip color="primary" size="small" label={chip} className={classes.chip} />
-                    <Box className="extra-icons">
-                        <Fab aria-label="see" size="small">
+                    <Box className={Style.extraIcons}>
+                        <Fab aria-label="see" size="small" className={Style.icon}>
                             <Visibility size="small" />
                         </Fab>
-                        <Fab aria-label="like" size="small">
+                        <Fab aria-label="like" size="small" className={Style.icon}>
                             {
                                 like ?
                                     <Favorite size="small" color="primary" onClick={() => removeFavorite({ id })} />
@@ -179,13 +179,13 @@ export default function CardProduct(props) {
 
                         </Fab>
                     </Box>
-                    <Link to="#" className={classes.cardImage}>
+                    <Link to={`/detail/${id}`} className={classes.cardImage}>
                         <img className={classes.image} src={image} alt="" />
                     </Link>
                 </Box>
                 <CardContent className={classes.cardContent}>
                     <Box>
-                        <Link to="#" className={classes.subtitle}>{title}</Link>
+                        <Link to={`/detail/${id}`} className={classes.subtitle}>{title}</Link>
                         <Box>
                             <Rating name="rating" value={rating} readOnly />
                         </Box>
@@ -200,7 +200,7 @@ export default function CardProduct(props) {
                     </Box>
                     <Box className={classes.addCart}>
                         <Button variant="outlined" color="primary" size="small" onClick={add} >
-                            <Add size="small" />
+                            <Add size="small" color="primary"/>
                         </Button>
 
                         {
@@ -208,7 +208,7 @@ export default function CardProduct(props) {
                                 <>
                                     <Box ><strong>{quantity}</strong></Box>
                                     <Button variant="outlined" color="primary" size="small" onClick={remove}>
-                                        <Remove size="small" />
+                                        <Remove size="small" color="primary"/>
                                     </Button>
                                 </>
                                 :

@@ -1,90 +1,202 @@
 [
     {
-        "id":"0",
+        "id": "0",
         "chip": "20% off",
         "image": "../asset/images/sp1.png",
         "title": "Black Acid Wash",
         "rating": 1,
-        "price": "$200.00",
-        "oldPrice": "250.00",
-        "like": [
-            {
-                "abc":"abc",
-                "edf":"edf"   
-            }
-        ]
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": true
     },
     {
-        "id":"1",
+        "id": "1",
         "chip": "20% off",
         "image": "../asset/images/sp2.png",
         "title": "ABC Bl",
         "rating": 2,
-        "price": "$200.00",
-        "oldPrice": "250.00",
-        "like": false
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": true
     },
     {
-        "id":"2",
+        "id": "2",
         "chip": "20% off",
         "image": "../asset/images/sp3.png",
         "title": "Black Acid Wash",
         "rating": 3,
-        "price": "$200.00",
-        "oldPrice": "250.00",
-        "like": false
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": true
     },
     {
-        "id":"3",
+        "id": "3",
         "chip": "20% off",
         "image": "../asset/images/sp4.png",
         "title": "Black Acid Wash",
         "rating": 5,
-        "price": "$200.00",
-        "oldPrice": "250.00",
-        "like": true
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": true
     },
     {
-        "id":"4",
+        "id": "4",
         "chip": "20% off",
-        "image": "../asset/images/sp1.png",
+        "image": "../asset/images/sp5.png",
         "title": "Black Acid Wash",
         "rating": 4,
-        "price": "$200.00",
-        "oldPrice": "250.00",
-        "like": true
-
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": true
     },
     {
-        "id":"5",
+        "id": "5",
         "chip": "20% off",
-        "image": "../asset/images/sp1.png",
+        "image": "../asset/images/sp6.png",
         "title": "Black Acid Wash",
         "rating": 4,
-        "price": "$200.00",
-        "oldPrice": "250.00",
-        "like": true
-
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": true
     },
     {
-        "id":"6",
+        "id": "6",
         "chip": "20% off",
-        "image": "../asset/images/sp1.png",
+        "image": "../asset/images/sp7.png",
         "title": "Black Acid Wash",
         "rating": 4,
-        "price": "$200.00",
-        "oldPrice": "250.00",
-        "like": true
-
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": true
     },
     {
-        "id":"7",
+        "id": "7",
         "chip": "20% off",
-        "image": "../asset/images/sp1.png",
+        "image": "../asset/images/sp8.png",
         "title": "Black Acid Wash",
         "rating": 4,
-        "price": "$200.00",
-        "oldPrice": "250.00",
-        "like": true
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": true
+    },
+    {
+        "id": "8",
+        "chip": "20% off",
+        "image": "../asset/images/sp9.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": false
+    },
+    {
+        "id": "9",
+        "chip": "20% off",
+        "image": "../asset/images/sp10.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": false
+    },
+    {
+        "id": "10",
+        "chip": "20% off",
+        "image": "../asset/images/sp11.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": false
+    },
+    {
+        "id": "11",
+        "chip": "20% off",
+        "image": "../asset/images/sp12.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": false
+    },
+    {
+        "id": "12",
+        "chip": "20% off",
+        "image": "../asset/images/sp13.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": false
+    },
+    {
+        "id": "13",
+        "chip": "20% off",
+        "image": "../asset/images/sp14.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": false
+    },
+    {
+        "id": "14",
+        "chip": "20% off",
+        "image": "../asset/images/sp15.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": false
+    },
+    {
+        "id": "15",
+        "chip": "20% off",
+        "image": "../asset/images/sp16.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": 200,
+        "oldPrice": 250.00,
+        "falsh_deals": false
+    },
+    {
+        "id": "16",
+        "chip": "20% off",
+        "image": "../asset/images/sp17.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": false
+    },
+    {
+        "id": "17",
+        "chip": "20% off",
+        "image": "../asset/images/sp18.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": false
+    },
+    {
+        "id": "18",
+        "chip": "20% off",
+        "image": "../asset/images/sp19.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": false
+    },
+    {
+        "id": "19",
+        "chip": "20% off",
+        "image": "../asset/images/sp20.png",
+        "title": "Black Acid Wash",
+        "rating": 4,
+        "price": 200,
+        "oldPrice": 250,
+        "falsh_deals": false
     }
 ]

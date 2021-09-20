@@ -9,7 +9,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapActionToProps = dispatch =>({
-    addProductToCart,
     removeAllProductToCart:(product) => dispatch(removeAllProductToCart(product)),
     addProductToCart: (product) => dispatch(addProductToCart(product)),
     removeProductToCart: (product) => dispatch(removeProductToCart(product))

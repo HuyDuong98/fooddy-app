@@ -12,8 +12,8 @@ export const setProducts = (items) => ({
 })
 
 export const fetchProducts = () => async (dispatch) => {
-    const res = await axios.get('http://localhost:8080/api/homepage');
-    dispatch(setProducts(res.data[0]));
+    const res = await axios.get('http://localhost:8080/api/products');
+    dispatch(setProducts(res.data));
 }
 
 const reducer = (state = initState, action) => {

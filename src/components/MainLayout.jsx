@@ -1,4 +1,3 @@
-import Home from "../pages/Home";
 import Footer from "./Footer";
 import Header from "../containers/Header";
 import BottomNavigate from "./BottomNavigate";

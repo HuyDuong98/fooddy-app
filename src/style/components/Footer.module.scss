@@ -38,5 +38,14 @@
             margin-top: 15px;
         }
     }
+
+    .installApp{
+        margin-top: 20px;
+        svg{
+            &:first-child{
+                margin-right: 16px;
+            }
+        }
+    }
     
 }

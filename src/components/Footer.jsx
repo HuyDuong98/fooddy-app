@@ -1,7 +1,10 @@
 import { Box, Container, Grid, IconButton, MenuItem, MenuList, Typography } from "@material-ui/core";
 import { Facebook, Pinterest, Twitter, YouTube } from "@material-ui/icons";
 import Style from "../style/components/Footer.module.scss";
-import { ReactComponent as Logo} from "../asset/images/logo.svg";
+import { ReactComponent as Logo } from "../asset/images/logo.svg";
+import { ReactComponent as GooglePlay } from "../asset/icon/CHPlay.svg";
+import { ReactComponent as AppStore } from "../asset/icon/AppStore.svg";
+import { Link } from "react-router-dom";
 
 
 export default function Footer(params) {
@@ -10,11 +13,19 @@ export default function Footer(params) {
             <Container>
                 <Grid container spacing={3}>
                     <Grid item lg={4}>
-                        <Logo alt="" width="130px" height="34px" className={Style.logo}/>
+                        <Logo alt="" width="130px" height="34px" className={Style.logo} />
                         <Box>
                             <Typography>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor libero id et, in gravida. Sit diam duis mauris nulla cursus. Erat et lectus vel ut sollicitudin elit at amet.
                             </Typography>
+                            <Box className={Style.installApp}>
+                                <Link to="#">
+                                    <GooglePlay />
+                                </Link>
+                                <Link to="#">
+                                    <AppStore />
+                                </Link>
+                            </Box>
                         </Box>
 
                     </Grid>

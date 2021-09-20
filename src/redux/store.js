@@ -4,7 +4,8 @@ import productReducer from "./reducer/products";
 import cardReducer from "./reducer/cart";
 import categoriesReducer from "./reducer/categories";
 import authReducer from './reducer/authen';
-import favoriteReducer from './reducer/favorite'
+import favoriteReducer from './reducer/favorite';
+import productDetailReducer from './reducer/productDetail'
 
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -15,6 +16,7 @@ const reducer = combineReducers({
     categories: categoriesReducer,
     auth: authReducer,
     favorite: favoriteReducer,
+    productDetail: productDetailReducer,
 })
 
 const persistConfig = {

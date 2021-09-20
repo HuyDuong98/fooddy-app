@@ -1,5 +1,18 @@
 @import '../common/colours';
 
-// .boxProduct{
-//     margin: 10px;
-// }
+.extraIcons{
+    top: 7px;
+    right: 15px;
+    cursor: pointer;
+    display: flex;
+    z-index: 2;
+    position: absolute;
+    flex-direction: column;
+    .icon{
+        width: 36px;
+        height: 36px;
+        background-color: transparent;
+        box-shadow: none;
+        color: rgba(0, 0, 0, 0.54);
+    }
+}

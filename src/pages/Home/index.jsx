@@ -18,7 +18,7 @@ import { ReactComponent as NewArrivalsIcon } from "../../asset/icon/new.svg";
 import { ReactComponent as FlashDealsIcon } from "../../asset/icon/flash_deals.svg";
 import Style from "../../style/page/home.module.scss"
 
-export default function Home({ products, cart, fetchProducts, addProductToCart, removeProductToCart }) {
+export default function Home({ products, fetchProducts, addProductToCart, removeProductToCart }) {
     const classes = useStyles()
     const danger = red[800]
     const settings = {
@@ -78,13 +78,14 @@ export default function Home({ products, cart, fetchProducts, addProductToCart, 
     const [productFlashSale, setProductFlashSale] = useState({})
     const [productMore, setProductMore] = useState({})
 
+    console.log(products)
     useEffect(() => {
         fetchProducts();
     }, [fetchProducts])
 
     useEffect(() => {
-        setProductFlashSale(products.flash_deals)
-        setProductMore(products.flash_deals)
+        setProductFlashSale(products.filter(e => e.falsh_deals === true))
+        setProductMore(products.filter(e => e.falsh_deals === false))
     }, [products])
 
     function handleAddProduct(product) {
@@ -105,7 +106,7 @@ export default function Home({ products, cart, fetchProducts, addProductToCart, 
                     <Box className={`${classes.boxdflex} ${classes.subHeader}`}>
                         <Box className={classes.boxdflex}>
                             <Box color={danger} className="icon-title-box">
-                                <FlashDealsIcon color="secondary" className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium" />
+                                <FlashDealsIcon color="primary" />
                             </Box>
                             <Box>
                                 <h4 className="title-box">Flash Deals</h4>
@@ -238,7 +239,7 @@ export default function Home({ products, cart, fetchProducts, addProductToCart, 
 
 function NextArrow(props) {
     const classes = useStyles();
-    const { className, style, onClick } = props;
+    const { onClick } = props;
     return (
         <IconButton aria-label="next arrow" size="medium" variant="contained" className={classes.btnNextArrow} onClick={onClick}>
             <ArrowForward />
@@ -248,7 +249,7 @@ function NextArrow(props) {
 
 function PrevArrow(props) {
     const classes = useStyles();
-    const { className, style, onClick } = props;
+    const { onClick } = props;
     return (
         <IconButton aria-label="prev arrow" size="medium" variant="contained" className={classes.btnPrevArrow} onClick={onClick}>
             <ArrowBack />
